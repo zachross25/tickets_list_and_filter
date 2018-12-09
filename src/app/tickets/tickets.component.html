@@ -1,0 +1,82 @@
+<div class="container bg-info">
+  <div class="row">
+    <div class="col-lg-3">
+      <b>ВАЛЮТА</b><br>
+        <form #filterForm="ngForm" action="#" method="GET"(ngC)="filter(filterForm);">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="currency" id="inlineRadio1" value="rub" [(ngModel)]="currency">
+            <label class="form-check-label" for="inlineRadio1">RUB</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="currency" id="inlineRadio2" value="usd" [(ngModel)]="currency">
+            <label class="form-check-label" for="inlineRadio2">USD</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="currency" id="inlineRadio3" value="eur" [(ngModel)]="currency">
+            <label class="form-check-label" for="inlineRadio3">EUR</label>
+          </div>
+        <br>
+        <b>КОЛИЧЕСТВО ПЕРЕСАДОК</b>
+        <ul>
+          <li>
+            <input type="radio" class="form-check-input" id="checkAll" name="stops" [(ngModel)]="stops" value="all">
+            <label class="form-check-label" for="checkAll">All</label>
+          </li>
+          <li>
+            <input type="radio" class="form-check-input" id="checkAll" name="stops" [(ngModel)]="stops" value="0">
+            <label class="form-check-label" for="checkAll">No</label>
+          </li>
+          <li>
+            <input type="radio" class="form-check-input" id="check1" name="stops" [(ngModel)]="stops" value="1">
+            <label class="form-check-label" for="check1">1 transfer</label>
+          </li>
+          <li>
+            <input type="radio" class="form-check-input" id="check2" name="stops" [(ngModel)]="stops" value="2">
+            <label class="form-check-label" for="check2">2 transfers</label>
+          </li>
+          <li>
+            <input type="radio" class="form-check-input" id="check3" name="stops" [(ngModel)]="stops" value="3">
+            <label class="form-check-label" for="check3">3 transfers</label>
+          </li>
+
+        </ul>
+      </form>
+    </div>
+    <div class="col-lg-9">
+
+
+      <div class="row bg-white m-2" *ngFor="let ticket of tickets">
+        <div class="col-3">
+          <img src="/assets/turkish.png" alt="turkish" height="55px"/>
+          <br>
+          <button class="btn-warning btn-lg m-2">купить за {{ ticket.price}} {{ currency|uppercase }}</button>
+        </div>
+        <div class="col-9">
+          <div class="row">
+            <div class="col-4">
+              <h3>{{ ticket.departure_time }}</h3>
+              <b>{{ ticket.origin }}, {{ ticket.origin_name }}</b><br>
+              <h6 class="">{{ ticket.departure_date }}</h6>
+            </div>
+            <div class="col-4">
+              <br>
+              <div style="text-align: center;">{{ ticket.stops }} пересадка</div>
+              <div class="row">
+                <div class="col-10"><hr></div>
+                <div class="col-1" style="background-image: url(/assets/airplane.png); background-repeat: no-repeat;width: 16px;height: 16px;float: right;"></div>
+              </div>
+            </div>
+            <div class="col-4">
+              <h3>{{ ticket.arrival_time }}</h3>
+              <b>{{ ticket.destination }}, {{ ticket.destination_name }}</b><br>
+              <h6 class="">{{ ticket.arrival_date }}</h6>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
