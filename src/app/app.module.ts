@@ -5,7 +5,7 @@ import { MatCardModule, MatGridListModule, MatButtonModule,  MatListModule, MatC
 import { AppComponent } from './app.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import {RouterModule} from '@angular/router';
-import {TicketsServiceService} from './tickets-service.service';
+import {TicketsService} from './tickets-service.service';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
@@ -24,7 +24,7 @@ import {CurrencyService} from './currency.service';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [HttpClientModule, TicketsServiceService, CurrencyService],
+  providers: [HttpClientModule, TicketsService, CurrencyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

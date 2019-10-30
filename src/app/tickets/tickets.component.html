@@ -19,23 +19,23 @@
         <b>КОЛИЧЕСТВО ПЕРЕСАДОК</b>
         <ul>
           <li>
-            <input type="radio" class="form-check-input" id="checkAll" name="stops" [(ngModel)]="stops" value="all">
-            <label class="form-check-label" for="checkAll">All</label>
+            <input type="radio" class="form-check-input" id="checkAny" name="transfers" [(ngModel)]="transfers" value="any">
+            <label class="form-check-label" for="checkAny">Any transfers ammount</label>
           </li>
           <li>
-            <input type="radio" class="form-check-input" id="checkAll" name="stops" [(ngModel)]="stops" value="0">
-            <label class="form-check-label" for="checkAll">No</label>
+            <input type="radio" class="form-check-input" id="check0" name="transfers" [(ngModel)]="transfers" value="0">
+            <label class="form-check-label" for="check0">transit</label>
           </li>
           <li>
-            <input type="radio" class="form-check-input" id="check1" name="stops" [(ngModel)]="stops" value="1">
+            <input type="radio" class="form-check-input" id="check1" name="transfers" [(ngModel)]="transfers" value="1">
             <label class="form-check-label" for="check1">1 transfer</label>
           </li>
           <li>
-            <input type="radio" class="form-check-input" id="check2" name="stops" [(ngModel)]="stops" value="2">
+            <input type="radio" class="form-check-input" id="check2" name="transfers" [(ngModel)]="transfers" value="2">
             <label class="form-check-label" for="check2">2 transfers</label>
           </li>
           <li>
-            <input type="radio" class="form-check-input" id="check3" name="stops" [(ngModel)]="stops" value="3">
+            <input type="radio" class="form-check-input" id="check3" name="transfers" [(ngModel)]="transfers" value="3">
             <label class="form-check-label" for="check3">3 transfers</label>
           </li>
 
@@ -46,9 +46,10 @@
 
       <div class="row bg-white m-2" *ngFor="let ticket of tickets">
         <div class="col-3">
+          Carrier: {{ ticket.carrier }}
           <img src="/assets/turkish.png" alt="turkish" height="55px"/>
           <br>
-          <button class="btn-warning btn-lg m-2">{{ ticket.price }} {{ currency|uppercase }}</button>
+          <button class="btn-warning btn-lg m-2">{{ ticket.price }} {{ currency | uppercase }}</button>
         </div>
         <div class="col-9">
           <div class="row">
@@ -59,7 +60,7 @@
             </div>
             <div class="col-4">
               <br>
-              <div style="text-align: center;">{{ ticket.stops }} пересадка</div>
+              <div style="text-align: center;">{{ ticket.transfers }} пересадка</div>
               <div class="row">
                 <div class="col-10"><hr></div>
                 <div class="col-1" style="background-image: url(/assets/airplane.png); background-repeat: no-repeat;width: 16px;height: 16px;float: right;"></div>

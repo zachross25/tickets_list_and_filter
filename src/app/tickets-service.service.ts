@@ -6,7 +6,7 @@ import {Ticket} from './tickets/ticket';
 @Injectable({
   providedIn: 'root'
 })
-export class TicketsServiceService {
+export class TicketsService {
 
 
   constructor(private http: HttpClient) {

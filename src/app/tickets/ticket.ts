@@ -9,7 +9,7 @@ export class Ticket {
     public arrival_time: string,
     public arrival_date: string,
     public carrier: string,
-    public stops: number,
+    public transfers: number,
     public price: number,
   ) {}
 }

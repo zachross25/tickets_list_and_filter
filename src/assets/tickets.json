@@ -9,7 +9,7 @@
     "arrival_date": "12.05.18",
     "arrival_time": "22:10",
     "carrier": "TK",
-    "stops": 3,
+    "transfers": 3,
     "price": 23
   }, {
     "origin": "VVO",
@@ -21,7 +21,7 @@
     "arrival_date": "12.05.18",
     "arrival_time": "23:50",
     "carrier": "S7",
-    "stops": 1,
+    "transfers": 1,
     "price": 112
   }, {
     "origin": "VVO",
@@ -33,7 +33,7 @@
     "arrival_date": "12.05.18",
     "arrival_time": "18:10",
     "carrier": "SU",
-    "stops": 0,
+    "transfers": 0,
     "price": 344
   }, {
     "origin": "VVO",
@@ -45,7 +45,7 @@
     "arrival_date": "12.05.18",
     "arrival_time": "23:30",
     "carrier": "TK",
-    "stops": 2,
+    "transfers": 2,
     "price": 645
   }, {
     "origin": "VVO",
@@ -57,7 +57,7 @@
     "arrival_date": "12.05.18",
     "arrival_time": "20:15",
     "carrier": "BA",
-    "stops": 3,
+    "transfers": 3,
     "price": 21
   }, {
     "origin": "VVO",
@@ -69,7 +69,7 @@
     "arrival_date": "12.05.18",
     "arrival_time": "19:25",
     "carrier": "SU",
-    "stops": 3,
+    "transfers": 3,
     "price": 12
   }, {
     "origin": "VVO",
@@ -81,7 +81,7 @@
     "arrival_date": "12.05.18",
     "arrival_time": "23:45",
     "carrier": "TK",
-    "stops": 1,
+    "transfers": 1,
     "price": 98
   }, {
     "origin": "VVO",
@@ -93,7 +93,7 @@
     "arrival_date": "12.05.18",
     "arrival_time": "15:25",
     "carrier": "TK",
-    "stops": 0,
+    "transfers": 0,
     "price": 45
   }, {
     "origin": "VVO",
@@ -105,7 +105,7 @@
     "arrival_date": "12.05.18",
     "arrival_time": "23:35",
     "carrier": "SU",
-    "stops": 1,
+    "transfers": 1,
     "price": 314
   }, {
     "origin": "VVO",
@@ -117,7 +117,7 @@
     "arrival_date": "12.05.18",
     "arrival_time": "16:15",
     "carrier": "S7",
-    "stops": 0,
+    "transfers": 0,
     "price": 787
   }]
 }
