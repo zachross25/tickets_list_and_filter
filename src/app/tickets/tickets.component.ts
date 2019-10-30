@@ -11,7 +11,7 @@ import { CurrencyService } from '../currency.service';
 })
 export class TicketsComponent implements OnInit {
   tickets: Ticket[] = [];
-  @ViewChild('filterForm') ngForm: NgForm;
+  @ViewChild('filterForm', null) ngForm: NgForm;
   currency = 'usd';
   stops = '2';
   rub_rate: number;
