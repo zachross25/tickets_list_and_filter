@@ -1,16 +1,16 @@
-express=require('express');
-constapp=express();
-constpath=require('path');
+//Install express server
+const express = require('express');
+const path = require('path');
 
-var app = express();
-app.use(express.static('./dist/aviasalesAngulario'));
+const app = express();
 
-app.listen(process.env.PORT||8080);
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist/aviasalesAngulario'));
 
+app.get('/*', function(req,res) {
 
-//PathLocationStradegy
-app.get(function(req,res) {
-  res.sendFile(path.join('./dist/aviasalesAngulario/index.html'));
+res.sendFile(path.join(__dirname+'/dist/aviasalesAngulario/index.html'));
 });
 
-console.log('Console Listening'); 
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 4000);
