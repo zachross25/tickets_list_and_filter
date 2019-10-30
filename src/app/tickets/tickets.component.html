@@ -1,4 +1,4 @@
-<div class="container bg-info">
+<div class="container bg-info"  style="min-height: 1000px">
   <div class="row">
     <div class="col-lg-3">
       <b>ВАЛЮТА</b><br>
@@ -44,12 +44,11 @@
     </div>
     <div class="col-lg-9">
 
-
       <div class="row bg-white m-2" *ngFor="let ticket of tickets">
         <div class="col-3">
           <img src="/assets/turkish.png" alt="turkish" height="55px"/>
           <br>
-          <button class="btn-warning btn-lg m-2">купить за {{ ticket.price}} {{ currency|uppercase }}</button>
+          <button class="btn-warning btn-lg m-2">{{ ticket.price }} {{ currency|uppercase }}</button>
         </div>
         <div class="col-9">
           <div class="row">

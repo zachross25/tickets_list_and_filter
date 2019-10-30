@@ -9,6 +9,7 @@ import {TicketsServiceService} from './tickets-service.service';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {CurrencyService} from './currency.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [HttpClientModule, TicketsServiceService],
+  providers: [HttpClientModule, TicketsServiceService, CurrencyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
