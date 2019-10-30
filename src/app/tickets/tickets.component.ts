@@ -13,7 +13,7 @@ export class TicketsComponent implements OnInit {
   tickets: Ticket[] = [];
   @ViewChild('filterForm', null) ngForm: NgForm;
   currency = 'usd';
-  transfers = '2'; //
+  transfers = '0'; //
   rub_rate: number; // Russian Ruble exchange rate
   eur_rate: number; // EURO exchange rate
 
@@ -54,21 +54,21 @@ export class TicketsComponent implements OnInit {
         this.eur_rate = data['rates']['EUR'];
         console.log('set rub_rate to ' + this.rub_rate);
         console.log('set eur_rate to ' + this.eur_rate);
+
+        this.ngForm.form.valueChanges.subscribe(x => {
+          console.log('####\nselected currency: ' + this.ngForm.value.currency);
+          console.log('selected transfers: ' + this.ngForm.value.transfers);
+          this.refreshTickets();
+        });
+
+
+        this.refreshTickets();
       },
       (error) => {
         console.log('Error', error);
       },
     );
 
-    this.ngForm.form.valueChanges.subscribe(x => {
-      console.log('####\nselected currency: ' + this.ngForm.value.currency);
-      console.log('selected transfers: ' + this.ngForm.value.transfers);
-
-      this.refreshTickets();
-    });
-
-
-    this.refreshTickets();
 
   }
 

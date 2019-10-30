@@ -9,7 +9,7 @@ app.listen(process.env.PORT||8080);
 
 
 //PathLocationStradegy
-app.get('/', function(req,res) {
+app.get(function(req,res) {
   res.sendFile(path.join('./dist/aviasalesAngulario/index.html'));
 });
 
