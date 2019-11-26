@@ -10,10 +10,11 @@ import {CurrencyService} from '../currency.service';
   styleUrls: ['./tickets.component.css']
 })
 export class TicketsComponent implements OnInit {
-  tickets: Ticket[] = [];
-  @ViewChild('filterForm', null) ngForm: NgForm;
-  currency = 'usd';
-  transfers = '0'; //
+  @ViewChild('filterForm', { static: false }) ngForm: NgForm;
+  tickets: Ticket[] = []; // tickets list
+  currency = 'usd'; // current currency
+  transfers = '0'; // transfers count
+  // currencies
   rub_rate: number; // Russian Ruble exchange rate
   eur_rate: number; // EURO exchange rate
 
