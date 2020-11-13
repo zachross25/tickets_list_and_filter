@@ -146,5 +146,3 @@ export class TicketsComponent implements OnInit {
     );
   }
 }
-
-// TODO: bug with checkbox
