@@ -26,9 +26,9 @@ export class TicketsComponent implements OnInit {
     private currencyService: CurrencyService,  // service for get currency data
   ) {
     // Add tranfer possible variants from 0 to 4 and -1 which means any
-    this.transferVariants.push(new TransferVariant('Any', -1, false));
-    this.transferVariants.push(new TransferVariant('Only direct', 0, false));
-    this.transferVariants.push(new TransferVariant('1 transfer', 1, true));
+    this.transferVariants.push(new TransferVariant('Any', -1, true));
+    this.transferVariants.push(new TransferVariant('direct', 0, false));
+    this.transferVariants.push(new TransferVariant('1 transfer', 1, false));
     this.transferVariants.push(new TransferVariant('2 transfers', 2, false));
     this.transferVariants.push(new TransferVariant('3 transfers', 3, false));
     this.transferVariants.push(new TransferVariant('4 transfers', 4, false));

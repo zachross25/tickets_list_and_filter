@@ -1,14 +1,16 @@
-body {
-  font-family: Open-Sans, Helvetica,sans-serif;
+.body {
+  width: 60em;
+  background: #F3F7FA;
+  padding-top: 5em;
 }
 
-.body {
-  position: relative;
-  width: 960px;
-  height: 1350px;
-  background: #F3F7FA;
-  padding-top: 3em;
+.center {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
+
 .filter {
   /* Filter */
   max-height: 15em;
@@ -17,20 +19,16 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
-.filterTitle {
-  /* Количество пересадок */
 
+.filterTitle {
   font-family: Open-Sans, Helvetica,sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 12px;
-  /* identical to box height, or 100% */
-  display: flex;
-  align-items: flex-end;
-  letter-spacing: 0.5px;
   text-transform: uppercase;
   color: #4A4A4A;
+  margin-top: 1em;
 }
 
 .transfersFilter {
@@ -44,13 +42,19 @@ body {
   padding-left: 0.3em;
 }
 
-.checkboxitem {
-
+.checkboxitem:disabled {
+  outline:1px solid black;
+  color: red;
+  opacity: 1;
 }
 
 .transfersFilterEl:hover {
   cursor: pointer;
-  background-color: aqua;
+  font-weight: bold;
+  background-color: lightskyblue;
+  border: 0.1em solid #DFE5EC;
+  box-sizing: border-box;
+  border-radius: 0 0.5em 0 0.5em;
 }
 
 .tab {
@@ -60,11 +64,6 @@ body {
   font-weight: 600;
   font-size: 0.7em;
   line-height: 1em;
-  /* identical to box height, or 167% */
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
   text-transform: uppercase;
   height: 5em;
 
