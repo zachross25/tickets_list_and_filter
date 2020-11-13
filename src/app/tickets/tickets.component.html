@@ -1,4 +1,5 @@
-<div class="container body"  style="min-height: 1000px">
+<div class="container body" style="min-height: 1000px">
+  <app-plane-logo></app-plane-logo>
   <div class="row">
     <div class="col-lg-3 filter">
       <b>ВАЛЮТА</b><br>
@@ -36,39 +37,48 @@
           <div class="tab float-right" [ngClass]="sortValue === 'fastest' ? 'active_tab' : ''" (click)="setSort('fastest')">Самый быстрый</div>
         </div>
       </div>
-      <div class="row bg-white m-2" *ngFor="let ticket of tickets">
-        <div class="col-3">
-          Carrier: {{ ticket.carrier }}
-          <img src="/assets/turkish.png" alt="turkish" height="55px"/>
-          <br>
-          <button class="btn-warning btn-lg m-2">{{ ticket.price }} {{ currency | uppercase }}</button>
-        </div>
-        <div class="col-9">
-          <div class="row">
-            <div class="col-4">
-              <h3>{{ ticket.departure_time }}</h3>
-              <b>{{ ticket.origin }}, {{ ticket.origin_name }}</b><br>
-              <h6 class="">{{ ticket.departure_date }}</h6>
-            </div>
-            <div class="col-4">
-              <br>
-              <div style="text-align: center;">{{ ticket.transfers }} пересадка</div>
-              <div class="row">
-                <div class="col-10"><hr></div>
-                <div class="col-1" style="background-image: url(/assets/airplane.png); background-repeat: no-repeat;width: 16px;height: 16px;float: right;"></div>
-              </div>
-            </div>
-            <div class="col-4">
-              <h3>{{ ticket.arrival_time }}</h3>
-              <b>{{ ticket.destination }}, {{ ticket.destination_name }}</b><br>
-              <h6 class="">{{ ticket.arrival_date }}</h6>
-            </div>
-          </div>
+<!--      <div class="row bg-white m-2" *ngFor="let ticket of tickets">-->
+<!--        <div class="col-3">-->
+<!--          Carrier: {{ ticket.carrier }}-->
+<!--          <img src="/assets/turkish.png" alt="turkish" height="55px"/>-->
+<!--          <br>-->
+<!--          <button class="btn-warning btn-lg m-2">{{ ticket.price }} {{ currency | uppercase }}</button>-->
+<!--        </div>-->
+<!--        <div class="col-9">-->
+<!--          <div class="row">-->
+<!--            <div class="col-4">-->
+<!--              <h3>{{ ticket.departure_time }}</h3>-->
+<!--              <b>{{ ticket.origin }}, {{ ticket.origin_name }}</b><br>-->
+<!--              <h6 class="">{{ ticket.departure_date }}</h6>-->
+<!--            </div>-->
+<!--            <div class="col-4">-->
+<!--              <br>-->
+<!--              <div style="text-align: center;">{{ ticket.transfers }} пересадка</div>-->
+<!--              <div class="row">-->
+<!--                <div class="col-10"><hr></div>-->
+<!--                <div class="col-1" style="background-image: url(/assets/airplane.png); background-repeat: no-repeat;width: 16px;height: 16px;float: right;"></div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-4">-->
+<!--              <h3>{{ ticket.arrival_time }}</h3>-->
+<!--              <b>{{ ticket.destination }}, {{ ticket.destination_name }}</b><br>-->
+<!--              <h6 class="">{{ ticket.arrival_date }}</h6>-->
+<!--            </div>-->
+<!--          </div>-->
 
-        </div>
-      </div>
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
-
-    </div>
+      <app-ticket *ngFor="let ticket of tickets"
+                  [afrom]="ticket.origin"
+                  [ato]="ticket.destination"
+                  [arrive]="ticket.arrival_time"
+                  [depart]='ticket.departure_time'
+                  [flightTime]='ticket.arrival_date'
+                  [price]="ticket.price"
+                  [transfers]="ticket.transfers"
+                  [currency]="currency"
+      ></app-ticket>
   </div>
 </div>

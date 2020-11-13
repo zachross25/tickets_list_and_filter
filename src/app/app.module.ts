@@ -14,11 +14,15 @@ import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {CurrencyService} from './currency.service';
+import { TicketComponent } from './ticket/ticket.component';
+import { PlaneLogoComponent } from './plane-logo/plane-logo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TicketsComponent
+    TicketsComponent,
+    TicketComponent,
+    PlaneLogoComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatListModule, MatGridListModule, MatCardModule,

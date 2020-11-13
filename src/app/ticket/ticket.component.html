@@ -1,0 +1,28 @@
+ <div class="ticket mt-3">
+    <!--    row one-->
+    <div class="row m-2 pt-4">
+      <div class="col-4">
+        <div class="price">{{ price }} {{ currency }}</div>
+      </div>
+      <div class="col-4"></div>
+      <div class="col-4">
+        <div class="logo"></div>
+      </div>
+    </div>
+
+    <!--    second row-->
+    <div class="row m-2">
+      <div class="col-4">
+        <div class="routeTitle">{{ afrom }}&mdash; {{ ato }}</div>
+        <div class="routeInfo">{{ depart }}  {{ arrive }}</div>
+      </div>
+      <div class="col-4">
+        <div class="routeTitle">flight time</div>
+        <div class="routeInfo">{{ flightTime }}</div>
+      </div>
+      <div class="col-4">
+        <div class="routeTitle">{{ transfers }} transfer</div>
+        <div class="routeInfo">{{ transfers }}</div>
+      </div>
+    </div>
+  </div>
