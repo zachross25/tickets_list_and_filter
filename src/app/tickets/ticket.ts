@@ -1,8 +1,8 @@
 export interface Ticket {
   // Цена в рублях
-  price: number
+  price: number;
   // Код авиакомпании (iata)
-  carrier: string
+  carrier: string;
   // Массив перелётов.
   // В тестовом задании это всегда поиск "туда-обратно" значит состоит из двух элементов
   segments: [
