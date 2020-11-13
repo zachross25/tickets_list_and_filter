@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatCardModule, MatGridListModule, MatButtonModule,  MatListModule, MatCheckboxModule} from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule,  } from '@angular/material/grid-list';
+import { MatListModule,  } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { TicketsComponent } from './tickets/tickets.component';
