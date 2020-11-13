@@ -1,6 +1,6 @@
-<div class="container bg-info"  style="min-height: 1000px">
+<div class="container body"  style="min-height: 1000px">
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-3 filter">
       <b>ВАЛЮТА</b><br>
         <form #filterForm="ngForm" action="#" method="GET">
           <div class="form-check form-check-inline">
@@ -15,35 +15,24 @@
             <input class="form-check-input" type="radio" name="currency" id="inlineRadio3" value="eur" [(ngModel)]="currency">
             <label class="form-check-label" for="inlineRadio3">EUR</label>
           </div>
-        <br>
-        <b>КОЛИЧЕСТВО ПЕРЕСАДОК</b>
-        <ul>
-          <li>
-            <input type="radio" class="form-check-input" id="checkAny" name="transfers" [(ngModel)]="transfers" value="any">
-            <label class="form-check-label" for="checkAny">Any transfers ammount</label>
+        <br/>
+        <h5 class="filterTitle">Количество пересадок</h5>
+        <ul class='transfersFilter'>
+          <li *ngFor="let transferVariant of tranferVariants" class="transfersFilterEl" (click)="toggleTransfer(transferVariant)">
+            <input type="checkbox" class="checkboxitem" id="transferVariant.title"
+                   [name]="'option-'+transferVariant.value.toString()"
+                   [checked]="transferVariant.checked"
+            >
+            <label class="form-check-label" for="transferVariant.title">&nbsp;{{ transferVariant.title }}</label>
           </li>
-          <li>
-            <input type="radio" class="form-check-input" id="check0" name="transfers" [(ngModel)]="transfers" value="0">
-            <label class="form-check-label" for="check0">transit</label>
-          </li>
-          <li>
-            <input type="radio" class="form-check-input" id="check1" name="transfers" [(ngModel)]="transfers" value="1">
-            <label class="form-check-label" for="check1">1 transfer</label>
-          </li>
-          <li>
-            <input type="radio" class="form-check-input" id="check2" name="transfers" [(ngModel)]="transfers" value="2">
-            <label class="form-check-label" for="check2">2 transfers</label>
-          </li>
-          <li>
-            <input type="radio" class="form-check-input" id="check3" name="transfers" [(ngModel)]="transfers" value="3">
-            <label class="form-check-label" for="check3">3 transfers</label>
-          </li>
-
         </ul>
       </form>
     </div>
-    <div class="col-lg-9">
-
+    <div class="col-lg-8">
+      <div class="tabs">
+        <div class="tab">Самый дешевый</div>
+        <div class="tab">Самый быстрый</div>
+      </div>
       <div class="row bg-white m-2" *ngFor="let ticket of tickets">
         <div class="col-3">
           Carrier: {{ ticket.carrier }}

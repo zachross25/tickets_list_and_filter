@@ -3,6 +3,7 @@ import { TicketsService } from '../tickets-service.service';
 import { Ticket } from './ticket';
 import { NgForm } from '@angular/forms';
 import { CurrencyService } from '../currency.service';
+import { TransferVariant } from './transfervariant';
 
 @Component({
   selector: 'app-tickets',
@@ -13,7 +14,8 @@ export class TicketsComponent implements OnInit {
   @ViewChild('filterForm', { static: false }) ngForm: NgForm;
   tickets: Ticket[] = []; // tickets list
   currency = 'usd'; // current currency
-  transfers = '0'; // transfers count
+  tranferVariants: Array<TransferVariant> = [];
+
   // currencies
   rub_rate: number; // Russian Ruble exchange rate
   eur_rate: number; // EURO exchange rate
@@ -22,9 +24,25 @@ export class TicketsComponent implements OnInit {
     private ticketService: TicketsService,  // service for get tickets
     private currencyService: CurrencyService,  // service for get currency data
   ) {
+    this.tranferVariants.push(new TransferVariant('Any', -1, false));
+    this.tranferVariants.push(new TransferVariant('Only direct', 0, false));
+    this.tranferVariants.push(new TransferVariant('1 transfer', 1, true));
+    this.tranferVariants.push(new TransferVariant('2 transfers', 2, false));
+    this.tranferVariants.push(new TransferVariant('3 transfers', 3, false));
+    this.tranferVariants.push(new TransferVariant('4 transfers', 4, false));
   }
 
+  toggleTransfer(transfer: TransferVariant) {
+    transfer.checked = !transfer.checked;
+    this.refreshTickets();
+  }
+
+  getTransfersVariants() {
+    return this.tranferVariants
+      .filter((variant) => variant.checked).map((variant) => variant.value);
+  }
   refreshTickets() {
+    const variants: Array<number> = this.getTransfersVariants();
     this.ticketService.getJSON().then((data: object) => {
       // reset tickets
       this.tickets.length = 0;
@@ -37,12 +55,9 @@ export class TicketsComponent implements OnInit {
           const rate: number = this.currency === 'rub' ? this.rub_rate : this.eur_rate;
           ticket.price = Math.round(ticket.price * rate);
         }
-        if (ticket.transfers.toString() === this.transfers.toString() || this.transfers.toString() === 'any') {
+        if (variants.includes(ticket.transfers) || variants.includes(-1)) {
           // if the ticket route match the transfers count display this ticket
           this.tickets.push(ticket);
-        } else {
-          // skip this ticket
-          continue;
         }
       }
     });
@@ -53,12 +68,8 @@ export class TicketsComponent implements OnInit {
       (data: any) => {
         this.rub_rate = data['rates']['RUB'];
         this.eur_rate = data['rates']['EUR'];
-        console.log('set rub_rate to ' + this.rub_rate);
-        console.log('set eur_rate to ' + this.eur_rate);
 
         this.ngForm.form.valueChanges.subscribe(x => {
-          console.log('####\nselected currency: ' + this.ngForm.value.currency);
-          console.log('selected transfers: ' + this.ngForm.value.transfers);
           this.refreshTickets();
         });
 

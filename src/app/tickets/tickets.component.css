@@ -1,0 +1,96 @@
+body {
+}
+
+.body {
+  position: relative;
+  width: 960px;
+  height: 1350px;
+  background: #F3F7FA;
+  padding-top: 5em;
+}
+.filter {
+  /* Filter */
+  max-height: 15em;
+  margin-left: 5%;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.filterTitle {
+  /* Количество пересадок */
+
+  font-family: Open-Sans, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 12px;
+  /* identical to box height, or 100% */
+  display: flex;
+  align-items: flex-end;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: #4A4A4A;
+}
+
+.transfersFilter {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.transfersFilterEl {
+  cursor: pointer;
+  padding-left: 0.3em;
+}
+
+.checkboxitem {
+
+}
+
+.transfersFilterEl:hover {
+  cursor: pointer;
+  background-color: aqua;
+}
+.tabs {
+  /* Tabs */
+}
+
+.tab {
+  /* Самый быстрый */
+  font-family: Open-Sans, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: #4A4A4A;
+
+
+}
+
+.active_tab {
+  /* Самый дешевый */
+
+  font-family: Open-Sans, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: #FFFFFF;
+
+}
+
