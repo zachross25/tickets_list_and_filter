@@ -18,10 +18,11 @@
         <br/>
         <h5 class="filterTitle">Количество пересадок</h5>
         <ul class='transfersFilter'>
-          <li *ngFor="let transferVariant of tranferVariants" class="transfersFilterEl" (click)="toggleTransfer(transferVariant)">
+          <li *ngFor="let transferVariant of transferVariants" class="transfersFilterEl" (click)="toggleTransfer(transferVariant)">
             <input type="checkbox" class="checkboxitem" id="transferVariant.title"
                    [name]="'option-'+transferVariant.value.toString()"
                    [checked]="transferVariant.checked"
+                   disabled
             >
             <label class="form-check-label" for="transferVariant.title">&nbsp;{{ transferVariant.title }}</label>
           </li>
@@ -29,9 +30,11 @@
       </form>
     </div>
     <div class="col-lg-8">
-      <div class="tabs">
-        <div class="tab">Самый дешевый</div>
-        <div class="tab">Самый быстрый</div>
+      <div class="tabs row">
+        <div class="col-lg-12">
+          <div class="tab float-left" [ngClass]="sortValue === 'cheapest' ? 'active_tab' : ''" (click)="setSort('cheapest')">Самый дешевый</div>
+          <div class="tab float-right" [ngClass]="sortValue === 'fastest' ? 'active_tab' : ''" (click)="setSort('fastest')">Самый быстрый</div>
+        </div>
       </div>
       <div class="row bg-white m-2" *ngFor="let ticket of tickets">
         <div class="col-3">

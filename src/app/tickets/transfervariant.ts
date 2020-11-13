@@ -8,4 +8,7 @@ export class TransferVariant {
     this.value = value;
     this.checked = checked ? checked : false;
   }
+  toggle() {
+    this.checked = !this.checked;
+  }
 }
