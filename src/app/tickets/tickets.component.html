@@ -37,49 +37,9 @@
           <div class="tab center float-right" [ngClass]="sortValue === 'fastest' ? 'active_tab' : ''" (click)="setSort('fastest')">fastest route</div>
         </div>
       </div>
-<!--      <div class="row bg-white m-2" *ngFor="let ticket of tickets">-->
-<!--        <div class="col-3">-->
-<!--          Carrier: {{ ticket.carrier }}-->
-<!--          <img src="/assets/turkish.png" alt="turkish" height="55px"/>-->
-<!--          <br>-->
-<!--          <button class="btn-warning btn-lg m-2">{{ ticket.price }} {{ currency | uppercase }}</button>-->
-<!--        </div>-->
-<!--        <div class="col-9">-->
-<!--          <div class="row">-->
-<!--            <div class="col-4">-->
-<!--              <h3>{{ ticket.departure_time }}</h3>-->
-<!--              <b>{{ ticket.origin }}, {{ ticket.origin_name }}</b><br>-->
-<!--              <h6 class="">{{ ticket.departure_date }}</h6>-->
-<!--            </div>-->
-<!--            <div class="col-4">-->
-<!--              <br>-->
-<!--              <div style="text-align: center;">{{ ticket.transfers }} пересадка</div>-->
-<!--              <div class="row">-->
-<!--                <div class="col-10"><hr></div>-->
-<!--                <div class="col-1" style="background-image: url(/assets/airplane.png); background-repeat: no-repeat;width: 16px;height: 16px;float: right;"></div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="col-4">-->
-<!--              <h3>{{ ticket.arrival_time }}</h3>-->
-<!--              <b>{{ ticket.destination }}, {{ ticket.destination_name }}</b><br>-->
-<!--              <h6 class="">{{ ticket.arrival_date }}</h6>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
       <app-ticket *ngFor="let ticket of tickets"
-                  [afrom]="ticket.segments[0].origin"
-                  [ato]="ticket.segments[0].destination"
-                  [arrive]=""
-                  [depart]="ticket.segments[0].date"
-                  [flightTime]="ticket.segments[0].duration"
-                  [price]="ticket.price"
-                  [transfers]="ticket.segments[0].stops"
+                  [ticket]="ticket"
                   [currency]="currency"
-                  [carrier]="ticket.carrier"
       ></app-ticket>
   </div>
 </div>

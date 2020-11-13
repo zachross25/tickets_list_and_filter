@@ -32,6 +32,7 @@ export class TicketsComponent implements OnInit {
     this.transferVariants.push(new TransferVariant('2 transfers', 2, false));
     this.transferVariants.push(new TransferVariant('3 transfers', 3, false));
     this.transferVariants.push(new TransferVariant('4 transfers', 4, false));
+    this.transferVariants.push(new TransferVariant('> 4 transfers', 999, false));
   }
 
   // sort tickets
@@ -49,8 +50,8 @@ export class TicketsComponent implements OnInit {
       // sort tickets by transfers ASC
       this.tickets.sort((ticket, next) => {
         if (
-          ticket.segments.reduce((a: any, b: any) => a.stops.length + b, 0) <
-          next.segments.reduce((a: any, b: any) => a.stops.length + b, 0)) {
+          ticket.segments[0].stops.length + ticket.segments[1].stops.length <
+          next.segments[0].stops.length + next.segments[1].stops.length) {
             return -1;
         } else {
           return 1;
@@ -111,9 +112,6 @@ export class TicketsComponent implements OnInit {
     const variants: Array<number> = this.getTransfersVariants();
     this.ticketService.getJSON()
       .then((data: any) => {
-
-
-        console.log(data)
       // reset tickets
       this.tickets.length = 0;
       // generate new tickets list
@@ -124,7 +122,11 @@ export class TicketsComponent implements OnInit {
           const rate: number = this.currency === 'rub' ? this.rub_rate : this.eur_rate;
           ticket.price = Math.round(ticket.price * rate);
         }
-        if (variants.includes(ticket.transfers) || variants.includes(-1)) {
+
+        // calculate transfers
+        ticket.transfers = ticket.segments[0].stops.length + ticket.segments[1].stops.length;
+
+        if (variants.includes(ticket.transfers) || variants.includes(-1) || variants.includes(999) && ticket.transfers > 4) {
           // if the ticket route match the transfers count display this ticket
           this.tickets.push(ticket);
         }

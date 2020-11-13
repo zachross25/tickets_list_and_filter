@@ -1,28 +1,28 @@
- <div class="ticket mt-3">
+ <div class="ticket m-3 p-3">
     <!--    row one-->
-    <div class="row m-2 pt-4">
+    <div class="row ml-1 mt-1">
       <div class="col-4">
-        <div class="price">{{ price }} {{ currency }}</div>
+        <div class="price">{{ ticket.price }} {{ currency }}</div>
       </div>
       <div class="col-4"></div>
       <div class="col-4">
-        <div class="logo" [style]="{'background': 'url(//pics.avs.io/99/36/' + carrier + '.png) no-repeat' }" title="carrier"></div>
+        <div class="logo" [style]="{'background': 'url(//pics.avs.io/99/36/' + ticket.carrier + '.png) no-repeat' }" title="carrier"></div>
       </div>
     </div>
-
     <!--    second row-->
-    <div class="row m-2">
+    <div *ngFor="let segment of ticket.segments"  class="row m-1">
       <div class="col-4">
-        <div class="routeTitle">{{ afrom }} &mdash; {{ ato }}</div>
-        <div class="routeInfo">{{ depart }}  {{ arrive }}</div>
+        <div class="routeTitle">{{ segment.origin }} &mdash; {{ ticket.segments[0].destination }}</div>
+        <div class="routeInfo">{{ segment.date | date:"shortTime" }} &mdash;
+          {{ addMinutes(segment.date, segment.duration) | date:"shortTime" }}</div>
       </div>
       <div class="col-4">
         <div class="routeTitle">flight time</div>
-        <div class="routeInfo">{{ flightTime }}</div>
+        <div class="routeInfo">{{ getHoursAndMinutes(segment.duration) }}</div>
       </div>
       <div class="col-4">
-        <div class="routeTitle">{{ transfers }} transfer</div>
-<!--        <div class="routeInfo">{{ transfers }}</div>-->
+        <div class="routeTitle">{{ segment.stops.length }} transfers</div>
+        <div class="routeInfo">{{ segment.stops }}</div>
       </div>
     </div>
   </div>
