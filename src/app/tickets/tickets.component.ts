@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {TicketsService} from '../tickets-service.service';
-import {Ticket} from './ticket';
-import {NgForm} from '@angular/forms';
-import {CurrencyService} from '../currency.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { TicketsService } from '../tickets-service.service';
+import { Ticket } from './ticket';
+import { NgForm } from '@angular/forms';
+import { CurrencyService } from '../currency.service';
 
 @Component({
   selector: 'app-tickets',
