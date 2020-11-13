@@ -48,8 +48,10 @@ export class TicketsComponent implements OnInit {
     } else if (this.sortValue === 'fastest') {
       // sort tickets by transfers ASC
       this.tickets.sort((ticket, next) => {
-        if (ticket.transfers < next.transfers) {
-          return -1;
+        if (
+          ticket.segments.reduce((a: any, b: any) => a.stops.length + b, 0) <
+          next.segments.reduce((a: any, b: any) => a.stops.length + b, 0)) {
+            return -1;
         } else {
           return 1;
         }
@@ -107,12 +109,15 @@ export class TicketsComponent implements OnInit {
   }
   refreshTickets() {
     const variants: Array<number> = this.getTransfersVariants();
-    this.ticketService.getJSON().then((data: object) => {
+    this.ticketService.getJSON()
+      .then((data: any) => {
+
+
+        console.log(data)
       // reset tickets
       this.tickets.length = 0;
-
       // generate new tickets list
-      for (const ticket of data['tickets']) {
+      for (const ticket of data.tickets) {
         if (this.currency !== 'usd') {
           // our base currency is USD. If USD is selected just display the price
           // or change price if currency is not USD

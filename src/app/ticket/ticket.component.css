@@ -23,10 +23,9 @@
 
 .logo {
   /* S7 Logo */
-
   width: 7em;
   height: 3em;
-  background: url(//pics.avs.io/99/36/S7.png) no-repeat;
+  /*background: url(//pics.avs.io/99/36/SU.png) no-repeat;*/
 }
 
 .routeTitle {

@@ -71,14 +71,15 @@
 <!--    </div>-->
 
       <app-ticket *ngFor="let ticket of tickets"
-                  [afrom]="ticket.origin"
-                  [ato]="ticket.destination"
-                  [arrive]="ticket.arrival_time"
-                  [depart]='ticket.departure_time'
-                  [flightTime]='ticket.arrival_date'
+                  [afrom]="ticket.segments[0].origin"
+                  [ato]="ticket.segments[0].destination"
+                  [arrive]=""
+                  [depart]="ticket.segments[0].date"
+                  [flightTime]="ticket.segments[0].duration"
                   [price]="ticket.price"
-                  [transfers]="ticket.transfers"
+                  [transfers]="ticket.segments[0].stops"
                   [currency]="currency"
+                  [carrier]="ticket.carrier"
       ></app-ticket>
   </div>
 </div>

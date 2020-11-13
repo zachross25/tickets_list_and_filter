@@ -9,11 +9,12 @@ export class TicketComponent implements OnInit {
   @Input() price: number;
   @Input() depart: string;
   @Input() arrive: string;
-  @Input() flightTime: string;
+  @Input() flightTime: number;
   @Input() afrom: string;
   @Input() ato: string;
-  @Input() transfers: number;
+  @Input() transfers: string[];
   @Input() currency: string;
+  @Input() carrier: string;
 
   constructor() { }
 
